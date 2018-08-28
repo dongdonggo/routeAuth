@@ -8,7 +8,7 @@
 
 #admin
 Route::group([
-    'middleware'=>'api',
+    'middleware'=>['api','routeauth'],
     'namespace'=>'Admin',
     'prefix'=>'admin'
 ],function(){

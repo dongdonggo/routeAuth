@@ -1,4 +1,5 @@
-  
+  php artisan vendor:publish --force #强制覆盖
+### composer.json
   composer.json 添加 files 模块 加载 helps 文件
   ```
   "autoload": {
@@ -21,8 +22,7 @@
 'providers' 数组添加
  App\Providers\RouteauthServiceProvider::class,
 ```
-中间件 kernel.php 中添加 
-
+   ### 中间件 kernel.php 中添加 
 $routeMiddleware
 'routeauth' => \App\Http\Middleware\RouteAuth::class,
    
