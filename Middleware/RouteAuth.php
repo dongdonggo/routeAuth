@@ -29,23 +29,24 @@ class RouteAuth
         try {
             $datajson = decrypt($authorization);
         } catch (\Exception $exception) {
-            return returnFail('','token is not find');
+            return returnFail('','token is not find',config('code.PERMISSION.permission_not_fond'));
         }
 
         $dataarr = json_decode($datajson, true);
         $user = User::where('uuid', $dataarr['uuid'])->first();
         if (!$user) {
-            return returnFail('','token user is not find');
+            return returnFail('','token user is not find',config('code.PERMISSION.permission_not_fond'));
         }
+
         if ($user->auth_token != $dataarr['auth_token']) {
-            return returnFail('', 'token is expire');
+            return returnFail('', 'token is expire', config('code.PERMISSION.permission_is_expire'));
         }
 
         #判断用户角色
         $rolesid = UserRole::where('users_id',$user->id)->pluck('roles_id');
         if ($rolesid) {
             Log::error('用户未绑定角色',['user'=>$user]);
-            return returnFail('','用户未激活，数据错误');
+            return returnFail('','用户未激活，数据错误',config('code.DATA.data_error'));
         }
         #判断用户是否拥有此权限
          $url = $request->path();
@@ -57,7 +58,7 @@ class RouteAuth
         if ($exists) {
             return $next($request);
         }else {
-            return returnFail('', '没有权限');
+            return returnFail('', '没有权限',config('code.PERMISSION.permission_no_access'));
         }
     }
 }

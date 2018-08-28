@@ -24,7 +24,7 @@ class Create extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:roles,name',
             'description'=>'required',
         ];
     }
@@ -37,7 +37,8 @@ class Create extends FormRequest
          {
              return [
                 'required' => '参数未填完整',
-                 'exists' => '数据错误'
+                 'exists' => '数据错误',
+                 'unique' => '数据已存在'
              ];
          }
 

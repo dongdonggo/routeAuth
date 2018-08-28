@@ -9,7 +9,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "webpatser/laravel-uuid":"^3.0"  
+    },
     "autoload":{
         "psr-4":{
             "Dongdonggo\\Routeauth\\":"src/"

@@ -21,6 +21,10 @@
 'providers' 数组添加
  App\Providers\RouteauthServiceProvider::class,
 ```
+中间件 kernel.php 中添加 
+
+$routeMiddleware
+'routeauth' => \App\Http\Middleware\RouteAuth::class,
    
     
     
