@@ -1,7 +1,6 @@
 {
     "name": "dongdonggo/routeauth",
     "description": "api route auth",
-    "type": "project",
     "license": "MIT",
     "authors": [
         {
