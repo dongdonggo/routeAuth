@@ -41,15 +41,15 @@ class RouteauthServiceProvider extends ServiceProvider
         # helps
         $this->publishes([__DIR__.'/../Helps' => app_path('Helps')], 'routeauth-Exceptions');
         # config
-        $this->publishes([__DIR__.'/app.php' => config_path('app.php')]);
+        // $this->publishes([__DIR__.'/app.php' => config_path('app.php')]); 
 //        $this->publishes([__DIR__.'/app.php' => config_path('routeauth.php')], 'config');
     }
 
 
     public function register()
     {
-        $configPath = __DIR__ . '/app.php';
-        $this->mergeConfigFrom($configPath,"app");
+        // $configPath = __DIR__ . '/app.php'; 
+        // $this->mergeConfigFrom($configPath,"app");
     }
 
   /*  public function boot(){
