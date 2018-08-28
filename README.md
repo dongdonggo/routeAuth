@@ -16,9 +16,9 @@
     },
     ```
     数据库迁移时注意删除，系统自带的 users 文件 user的model文件
-    
-   ### config/app.config
+      
 ```
+ ### config/app.config
 'providers' 数组添加
  App\Providers\RouteauthServiceProvider::class,
 ```
@@ -26,6 +26,8 @@
 $routeMiddleware
 'routeauth' => \App\Http\Middleware\RouteAuth::class,
    
-    
+### composer require webpatser/laravel-uuid
+
+添加组件 uuid 
     
     
